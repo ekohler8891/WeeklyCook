@@ -1,0 +1,28 @@
+﻿@page "/weeklycooklayout"
+
+@using WeeklyCook.Data
+
+
+<h3>Weekly Cooking for the Weak</h3>
+
+<button class="randomButton" onclick="">
+    Random Recipes for the week
+</button>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>recipes</th>
+        </tr>
+    </thead>
+</table>
+
+@code {
+    private Recipe[] recipes;
+
+    protected override async Task OnInitializedAsync()
+    {
+        //recipes = RecipeService.GetRandomListOfRecipes(3); 
+       
+    }
+}
