@@ -1,6 +1,7 @@
 ﻿@page "/weeklycooklayout"
 
 @using WeeklyCook.Data
+@inject RecipeService RecipeServices
 
 
 <h3>Weekly Cooking for the Weak</h3>
@@ -12,7 +13,7 @@
 <table class="table">
     <thead>
         <tr>
-            <th>recipes</th>
+            <th>@recipes</th>
         </tr>
     </thead>
 </table>
@@ -22,7 +23,7 @@
 
     protected override async Task OnInitializedAsync()
     {
-        //recipes = reciperServices.GetRandomListOfRecipes(3); 
-       
+        recipes = await RecipeServices.GetRandomListOfRecipes2(3);
+
     }
 }

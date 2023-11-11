@@ -22,14 +22,21 @@ public class RecipeService
         "Frozen dumpling"
     };
 
-    public Task<String[]> GetRandomListOfRecipes(int numRecipes)
+    public Task<Recipe[]> GetRandomListOfRecipes(int numRecipes)
     {
         Random random = new Random();
-        String[] recipesList = new String[numRecipes];
+        Recipe[] recipesList = new Recipe[numRecipes];
         for (int i = 0;i<numRecipes;i++)
         {
             recipesList[i] = recipesList[random.Next(14)];
         }
+        return Task.FromResult(recipesList);
+    }
+    public Task<Recipe[]> GetRandomListOfRecipes2(int numRecipes)
+    {
+       
+        Recipe[] recipesList = new Recipe[numRecipes];
+        
         return Task.FromResult(recipesList);
     }
 }

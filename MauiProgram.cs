@@ -23,7 +23,7 @@ public static class MauiProgram
 #endif
 
 		builder.Services.AddSingleton<WeatherForecastService>();
-		
+		builder.Services.AddSingleton<RecipeService>();
 
 
         return builder.Build();
