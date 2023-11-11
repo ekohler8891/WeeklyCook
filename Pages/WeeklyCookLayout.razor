@@ -14,6 +14,8 @@
     Random Recipes for the week ASYNC!
 </button>
 
+<input type="number" value="3" id="numberOfReceipes" name="numberOfReceipes" class="numberOfReceipes" />
+
 
 @if (recipes == null)
 {
@@ -37,19 +39,21 @@ else
 
 @code {
     private Recipe[] recipes;
-
+    
     protected override async Task OnInitializedAsync()
     {
         recipes = await RecipeServices.GetTestCodeToDisplay(3);
-
+        
     }
     private void RandomRecipeButton()
     {
         recipes = RecipeServices.GetTestCodeToDisplay2(3);
+
     }
     private async void RandomRecipeButton2Async()
     {
         recipes = await RecipeServices.GetTestCodeToDisplay(3);
+        
     }
 
 }
