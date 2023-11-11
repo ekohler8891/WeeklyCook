@@ -6,9 +6,14 @@
 
 <h3>Weekly Cooking for the Weak</h3>
 
-<button class="randomButton" onclick="RandomRecipeButton">
+<button class="randomButton" @onclick="RandomRecipeButton">
     Random Recipes for the week
 </button>
+
+<button class="randomButton" @onclick="RandomRecipeButton2Async">
+    Random Recipes for the week ASYNC!
+</button>
+
 
 @if (recipes == null)
 {
@@ -38,7 +43,11 @@ else
         recipes = await RecipeServices.GetTestCodeToDisplay(3);
 
     }
-    private async void RandomRecipeButton()
+    private void RandomRecipeButton()
+    {
+        recipes = RecipeServices.GetTestCodeToDisplay2(3);
+    }
+    private async void RandomRecipeButton2Async()
     {
         recipes = await RecipeServices.GetTestCodeToDisplay(3);
     }
