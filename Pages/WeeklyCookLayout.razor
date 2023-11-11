@@ -13,17 +13,17 @@
 <table class="table">
     <thead>
         <tr>
-            <th>@recipes</th>
+            <th>@recipes.Name</th>
         </tr>
     </thead>
 </table>
 
 @code {
-    private Recipe[] recipes;
+    private Recipe recipes;
 
     protected override async Task OnInitializedAsync()
     {
-        recipes = await RecipeServices.GetRandomListOfRecipes2(3);
+        recipes = await RecipeServices.GetTestCodeToDisplay(3);
 
     }
 }

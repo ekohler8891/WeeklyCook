@@ -32,11 +32,22 @@ public class RecipeService
         }
         return Task.FromResult(recipesList);
     }
-    public Task<Recipe[]> GetRandomListOfRecipes2(int numRecipes)
+    //Test code to get somthing to desplay
+    public Task<Recipe> GetTestCodeToDisplay(int numRecipes)
     {
        
         Recipe[] recipesList = new Recipe[numRecipes];
-        
-        return Task.FromResult(recipesList);
+        Recipe recipe = new Recipe();
+
+        //string[] t = new string[numRecipes];
+        //t[0] = nonDataBaseRecipes[0];
+        for(int i = 0; i < numRecipes; i++)
+        {
+      //      recipesList[i].Name = nonDataBaseRecipes[i];
+        }
+        recipe.Name = nonDataBaseRecipes[0];
+        //recipesList[0] = recipe;
+
+        return Task.FromResult(recipe);
     }
 }
