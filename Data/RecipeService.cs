@@ -33,7 +33,7 @@ public class RecipeService
         return Task.FromResult(recipesList);
     }
     //Test code to get somthing to desplay
-    public Task<Recipe> GetTestCodeToDisplay(int numRecipes)
+    public Task<Recipe[]> GetTestCodeToDisplay(int numRecipes)
     {
         Random random = new Random();
         Recipe[] recipesList = new Recipe[numRecipes];
@@ -41,13 +41,17 @@ public class RecipeService
 
         //string[] t = new string[numRecipes];
         //t[0] = nonDataBaseRecipes[0];
-        for(int i = 0; i < numRecipes; i++)
-        {
-      //      recipesList[i].Name = nonDataBaseRecipes[i];
-        }
+        
         recipe.Name = nonDataBaseRecipes[random.Next(14)];
-        //recipesList[0] = recipe;
+        recipesList[0] = recipe;
 
-        return Task.FromResult(recipe);
+        for (int i = 0; i < numRecipes; i++)
+        {
+            Recipe recipe2 = new Recipe();
+            recipe2.Name = nonDataBaseRecipes[random.Next(14)];
+            recipesList[i] = recipe2;
+        }
+
+        return Task.FromResult(recipesList);
     }
 }
