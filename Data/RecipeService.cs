@@ -35,7 +35,7 @@ public class RecipeService
     //Test code to get somthing to desplay
     public Task<Recipe> GetTestCodeToDisplay(int numRecipes)
     {
-       
+        Random random = new Random();
         Recipe[] recipesList = new Recipe[numRecipes];
         Recipe recipe = new Recipe();
 
@@ -45,7 +45,7 @@ public class RecipeService
         {
       //      recipesList[i].Name = nonDataBaseRecipes[i];
         }
-        recipe.Name = nonDataBaseRecipes[0];
+        recipe.Name = nonDataBaseRecipes[random.Next(14)];
         //recipesList[0] = recipe;
 
         return Task.FromResult(recipe);
