@@ -6,15 +6,15 @@
 
 <h3>Weekly Cooking for the Weak</h3>
 
-<button class="randomButton" @onclick="@(() => RandomRecipeButton(3))">
+<button class="randomButton" @onclick="@(() => RandomRecipeButton(recipeNumber))">
     Random Recipes for the week
 </button>
 
 <button class="randomButton" @onclick="RandomRecipeButton2Async">
-    Random Recipes for the week ASYNC!
+    Random 3 Recipes for the week (ASYNC)!
 </button>
 
-<input type="number" value="3" id="numberOfReceipes" name="numberOfReceipes" class="numberOfReceipes" onfocus="RandomRecipeButton(this.id)" />
+<input type="number" @bind ="recipeNumber"  id="numberOfReceipes" name="numberOfReceipes" />
 
 
 @if (recipes == null)
@@ -39,16 +39,25 @@ else
 
 @code {
     private Recipe[] recipes;
-    
+    private int? recipeNumber =3;
+    private int? RecipeNumber { get; set; }
 
     protected override async Task OnInitializedAsync()
     {
-        recipes = await RecipeServices.GetTestCodeToDisplay(3);
-        
+        recipes = await RecipeServices.GetTestCodeToDisplay(recipeNumber.Value);
+
     }
-    private void RandomRecipeButton(int number)
+    private void RandomRecipeButton(int? number)
     {
-        recipes = RecipeServices.GetTestCodeToDisplay2(number);
+        if(number > 0)
+        {
+            recipes = RecipeServices.GetTestCodeToDisplay2(number.Value);
+        }
+        else
+        {
+            number = 1;
+            recipes = RecipeServices.GetTestCodeToDisplay2(number.Value);
+        }
 
     }
     private async void RandomRecipeButton2Async()
