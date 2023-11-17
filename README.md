@@ -12,7 +12,7 @@ We are done with Phase 1.
 
 The next Phase will be numbered to keep track of the amount of areas to keep track and do not have to be done in the order presented.
 
-1. Removal of un-essential code.
+1. Removal of un-essential code. (DONE)
     There is old code from the start of a new .net maui Razor project still here that needs to be removed along with code not in use.
 2. UI needs to be layed out with the viewing of recipes, selecting recipes, adding and removing recipes.
     This part will have to have considerations of different page layouts and will be be broken down further.
