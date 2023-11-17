@@ -1,28 +1,69 @@
 ﻿@page "/weeklycooklayout"
 
 @using WeeklyCook.Data
+@inject RecipeService RecipeServices
 
 
 <h3>Weekly Cooking for the Weak</h3>
 
-<button class="randomButton" onclick="">
+<button class="randomButton" @onclick="@(() => RandomRecipeButton(recipeNumber))">
     Random Recipes for the week
 </button>
 
-<table class="table">
-    <thead>
-        <tr>
-            <th>recipes</th>
-        </tr>
-    </thead>
-</table>
+<button class="randomButton" @onclick="RandomRecipeButton2Async">
+    Random 3 Recipes for the week (ASYNC)!
+</button>
+
+<input type="number" @bind ="recipeNumber"  id="numberOfReceipes" name="numberOfReceipes" />
+
+
+@if (recipes == null)
+{
+    <p><em>Loading...</em></p>
+}
+else
+{
+    <table class="table">
+        <thead>
+            @foreach (var recipe in recipes)
+            {
+                <tr>
+                    <th>@recipe.Name</th>
+                </tr>
+
+            }
+        </thead>
+    </table>
+}
+
 
 @code {
     private Recipe[] recipes;
+    private int? recipeNumber =3;
+    private int? RecipeNumber { get; set; }
 
     protected override async Task OnInitializedAsync()
     {
-        //recipes = RecipeService.GetRandomListOfRecipes(3); 
-       
+        recipes = await RecipeServices.GetTestCodeToDisplay(recipeNumber.Value);
+
     }
+    private void RandomRecipeButton(int? number)
+    {
+        if(number > 0)
+        {
+            recipes = RecipeServices.GetTestCodeToDisplay2(number.Value);
+        }
+        else
+        {
+            number = 1;
+            recipes = RecipeServices.GetTestCodeToDisplay2(number.Value);
+        }
+
+    }
+    private async void RandomRecipeButton2Async()
+    {
+        recipes = await RecipeServices.GetTestCodeToDisplay(3);
+        
+    }
+
 }
