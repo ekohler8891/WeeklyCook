@@ -13,10 +13,11 @@ We are done with Phase 1.
 The next Phase will be numbered to keep track of the amount of areas to keep track and do not have to be done in the order presented.
 
 1. Removal of un-essential code. (DONE)
+   
     There is old code from the start of a new .net maui Razor project still here that needs to be removed along with code not in use.
-2. UI needs to be layed out with the viewing of recipes, selecting recipes, adding and removing recipes.
+3. UI needs to be layed out with the viewing of recipes, selecting recipes, adding and removing recipes.
     This part will have to have considerations of different page layouts and will be be broken down further.
-3. SQL lite data base to hold the receipes. Layout out the object of the recipe will need to be considered for stable version and on going versions.
+4. SQL lite data base to hold the receipes. Layout out the object of the recipe will need to be considered for stable version and on going versions.
     This part will most likely have at least 2 branches for focusing on the hooking the database to the app and making the database layout itself.  
 
 The term "we" here is to show that event though all the code I work on here is mine I have gotten help along the way and wanted to make sure that others know.
