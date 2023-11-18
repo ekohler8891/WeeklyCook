@@ -1,0 +1,66 @@
+﻿@page "/EnterRecipe"
+
+@using WeeklyCook.Data
+
+
+<h3>EnterRecipe</h3>
+<EditForm Model="@recipe" OnValidSubmit="handleSubmit">
+    
+    <label for="nameOfRecipe">Recipe Name:</label>
+    <input required id="nameOfRecipe" @bind-value="@recipe.Name"/>
+    <br/>
+    <label for="instructions">Instructions:</label>
+    <input required id="instructions" @bind-value="@recipe.Instructions" />
+    <br />
+    <label for="ingredients">Ingredients:</label>
+    <input required id="ingredients" @bind-value="@recipe.Ingredients" />
+    <br />
+    <label for="notes">Notes:</label>
+    <input id="notes" @bind-value="@recipe.Notes" />
+    <br />
+    <button type="submit" Submit</button>
+</EditForm>
+
+    
+@if (recipe == null)
+{
+    <p><em>Loading...</em></p>
+}
+else 
+{
+    <table class="table">
+        <thead>
+            <tr>
+                <th>@nameOfRecipeSubmitted</th>
+            </tr>
+            <tr>
+                <th>@instructions</th>
+            </tr>
+            <tr>
+                <th>@ingredients</th>
+            </tr>
+            <tr>
+                <th>@notes</th>
+            </tr>
+        </thead>
+    </table>
+}
+    
+
+
+@code {
+    Recipe recipe = new Recipe();
+
+    String nameOfRecipeSubmitted = null;
+    String instructions = null;
+    String ingredients = null;
+    String notes = null;
+    public void handleSubmit(EditContext information)
+    {
+        nameOfRecipeSubmitted = ((Recipe)information.Model).Name;
+        instructions = ((Recipe)information.Model).Instructions;
+        ingredients = ((Recipe)information.Model).Ingredients;
+        notes = ((Recipe)information.Model).Notes;
+    }
+
+}
