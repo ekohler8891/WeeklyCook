@@ -5,20 +5,21 @@
 
 <h3>EnterRecipe</h3>
 <EditForm Model="@recipe" OnValidSubmit="handleSubmit">
-    
-    <label for="nameOfRecipe">Recipe Name:</label>
+    <label>(Need)*</label>
+    <br/>
+    <label for="nameOfRecipe">*Recipe Name:</label>
     <input required id="nameOfRecipe" @bind-value="@recipe.Name"/>
     <br/>
-    <label for="instructions">Instructions:</label>
+    <label for="instructions">*Instructions:</label>
     <input required id="instructions" @bind-value="@recipe.Instructions" />
     <br />
-    <label for="ingredients">Ingredients:</label>
+    <label for="ingredients">*Ingredients:</label>
     <input required id="ingredients" @bind-value="@recipe.Ingredients" />
     <br />
     <label for="notes">Notes:</label>
     <input id="notes" @bind-value="@recipe.Notes" />
     <br />
-    <button type="submit" Submit</button>
+    <button type="submit">Submit</button>
 </EditForm>
 
     

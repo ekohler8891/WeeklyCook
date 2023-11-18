@@ -1,0 +1,12 @@
+﻿.EnterRecipe{
+
+}
+.EnterRecipe label{
+    color:red;
+}
+.EnterRecipe tr, th {
+    color: royalblue;
+}
+.instructions input{
+    background-color: red;
+}
