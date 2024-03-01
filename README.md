@@ -21,3 +21,7 @@ The next Phase will be numbered to keep track of the amount of areas to keep tra
     This part will most likely have at least 2 branches for focusing on the hooking the database to the app and making the database layout itself.  
 
 The term "we" here is to show that event though all the code I work on here is mine I have gotten help along the way and wanted to make sure that others know.
+
+STOPPING THE WORK ON THIS PROJECT. I will be starting over due the structure will be easier.
+
+I will be using a SQL database. API to talk to an online application with server to have a solid foundation to build on in more details due to suggestions from people in the industry
