@@ -75,4 +75,36 @@ public class RecipeService
 
         return recipesList;
     }
+    //Get Recipe by id
+    public Recipe[] GetRecipe(int recipeID)
+    {
+        var maxRecipeList = 1;
+        Recipe[] recipes = new Recipe[maxRecipeList];
+    //    var client = new HttpClient();
+      //  var request = new HttpRequestMessage();
+    //    request.Method = HttpMethod.Get;
+    //    request.RequestUri = new Uri($"https://localhost:7232/weaklycooking/recipe?lookback={10}&enddate={DateTime.Today.ToString()}"); ;
+
+//        request.Content = new StringContent("[]");
+ //       var response = client.SendAsync(request).Result;
+
+   //     var body = response.Content.ReadAsStringAsync().Result;
+        var client = new HttpClient();
+        var request = new HttpRequestMessage();
+        request.Method = HttpMethod.Get;
+//        request.RequestUri = new Uri("https://localhost:7232/weaklycooking/recipe/2");
+        request.RequestUri = new Uri($"https://localhost:7232/weaklycooking/recipe/?look={0}");
+
+
+        request.Content = new StringContent("[]");
+        var response = client.SendAsync(request).Result;
+
+        var body = response.Content.ReadAsStringAsync().Result;
+        Recipe recipe = new Recipe();
+        recipe.Name = body; 
+
+        recipes[0] = recipe;
+
+        return recipes;
+    }
 }

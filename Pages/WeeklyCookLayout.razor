@@ -14,6 +14,10 @@
     Random 3 Recipes for the week (ASYNC)!
 </button>
 
+<button class="randomButton" @onclick="@(() => GetRecipe(recipeNumber))">
+    GetRecipe
+</button>
+
 <input type="number" @bind ="recipeNumber"  id="numberOfReceipes" name="numberOfReceipes" />
 
 
@@ -58,6 +62,7 @@ else
             number = 1;
             recipes = RecipeServices.GetTestCodeToDisplay2(number.Value);
         }
+        
 
     }
     private async void RandomRecipeButton2Async()
@@ -65,5 +70,18 @@ else
         recipes = await RecipeServices.GetTestCodeToDisplay(3);
         
     }
+    private void GetRecipe(int? number)
+    {
+     //   recipes = RecipeServices.GetRecipe(number.Value);
 
+        if (number > 0)
+        {
+            recipes = RecipeServices.GetRecipe(number.Value);
+        }
+        else
+        {
+            number = 1;
+            recipes = RecipeServices.GetRecipe(number.Value);
+        }
+    }
 }
