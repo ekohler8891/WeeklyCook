@@ -1,4 +1,10 @@
-﻿namespace WeeklyCook.Data;
+﻿using Microsoft.Maui.Graphics.Text;
+using System.Net.Http.Json;
+using System.Text.Json;
+using System.Text.Json.Nodes;
+using System.Text.Json.Serialization;
+
+namespace WeeklyCook.Data;
 
 
 public class RecipeService
@@ -99,7 +105,13 @@ public class RecipeService
         request.Content = new StringContent("[]");
         var response = client.SendAsync(request).Result;
 
-        var body = response.Content.ReadAsStringAsync().Result;
+        string body = response.Content.ReadAsStringAsync().Result;
+
+        //Need to make this string json and take parts and make them match recipe object
+        var jBody = JsonSerializer.Serialize(body);
+   //     var name = jBody.("title");
+     //Close but not quite yet.
+        
         Recipe recipe = new Recipe();
         recipe.Name = body; 
 
