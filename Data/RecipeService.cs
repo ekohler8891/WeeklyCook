@@ -93,7 +93,7 @@ public class RecipeService
         var request = new HttpRequestMessage();
         request.Method = HttpMethod.Get;
 //        request.RequestUri = new Uri("https://localhost:7232/weaklycooking/recipe/2");
-        request.RequestUri = new Uri($"https://localhost:7232/weaklycooking/recipe/?look={0}");
+        request.RequestUri = new Uri($"https://localhost:7232/weaklycooking/recipe/{recipeID}");
 
 
         request.Content = new StringContent("[]");
