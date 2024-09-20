@@ -112,6 +112,12 @@ public class RecipeService
    //     var name = jBody.("title");
      //Close but not quite yet.
         
+        JsonObject jsonObject = new JsonObject();
+        jsonObject = JsonSerializer.Deserialize<JsonObject>(body);
+
+
+        body = jsonObject["title"].ToString();
+
         Recipe recipe = new Recipe();
         recipe.Name = body; 
 
