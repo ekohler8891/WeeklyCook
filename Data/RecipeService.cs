@@ -48,13 +48,13 @@ public class RecipeService
         //string[] t = new string[numRecipes];
         //t[0] = nonDataBaseRecipes[0];
         
-        recipe.Name = nonDataBaseRecipes[random.Next(14)];
+        recipe.Title = nonDataBaseRecipes[random.Next(14)];
         recipesList[0] = recipe;
 
         for (int i = 0; i < numRecipes; i++)
         {
             Recipe recipe2 = new Recipe();
-            recipe2.Name = nonDataBaseRecipes[random.Next(14)];
+            recipe2.Title = nonDataBaseRecipes[random.Next(14)];
             recipesList[i] = recipe2;
         }
 
@@ -69,13 +69,13 @@ public class RecipeService
         //string[] t = new string[numRecipes];
         //t[0] = nonDataBaseRecipes[0];
 
-        recipe.Name = nonDataBaseRecipes[random.Next(14)];
+        recipe.Title = nonDataBaseRecipes[random.Next(14)];
         recipesList[0] = recipe;
 
         for (int i = 0; i < numRecipes; i++)
         {
             Recipe recipe2 = new Recipe();
-            recipe2.Name = nonDataBaseRecipes[random.Next(14)];
+            recipe2.Title = nonDataBaseRecipes[random.Next(14)];
             recipesList[i] = recipe2;
         }
 
@@ -109,17 +109,17 @@ public class RecipeService
 
         //Need to make this string json and take parts and make them match recipe object
         var jBody = JsonSerializer.Serialize(body);
-   //     var name = jBody.("title");
+   //     var name = jBody.("Title");
      //Close but not quite yet.
         
         JsonObject jsonObject = new JsonObject();
         jsonObject = JsonSerializer.Deserialize<JsonObject>(body);
 
 
-        body = jsonObject["title"].ToString();
+        body = jsonObject["Title"].ToString();
 
         Recipe recipe = new Recipe();
-        recipe.Name = body; 
+        recipe.Title = body; 
 
         recipes[0] = recipe;
 
